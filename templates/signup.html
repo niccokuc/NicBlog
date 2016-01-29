@@ -1,0 +1,34 @@
+{% extends 'Navigation_Bar.html' %}
+{% block title %}SIGNUP{% endblock %}
+
+
+{% block content %}
+
+    <form method="POST" action=""> {%  csrf_token %}
+        {% for field in form %}
+         <div class="fieldWrapper">
+            {% if "varEmail" in field.label_tag %}
+                <div class="form-group">
+                    <label for="varEmail">Email:</label>
+                    <input type="text" id="varEmail" class="form-control" name="varEmail">
+                </div>
+            {% endif %}
+
+            {% if "varName" in field.label_tag %}
+                <div class="form-group">
+                    <label for="varName">Name:</label>
+                    <input type="text" id="varName" class="form-control" name="varName">
+                </div>
+            {% endif %}
+
+            {% if "varUser" in field.label_tag %}
+                <div class="form-group">
+                    <label for="varUser">User Id:</label>
+                    <input type="text" id="varUser" class="form-control" name="varUser">
+                </div>
+            {% endif %}
+         </div>
+        {% endfor %}
+        <input type="submit" value="Join" class="btn btn-success" />
+    </form>
+{% endblock %}
